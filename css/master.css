@@ -1,0 +1,228 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+/* Text Types */
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header and Nav Bar */
+
+header {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+  z-index: 999;
+  /* border-bottom: solid 1px #fff; */
+  background-color: #000;
+}
+
+header img {
+  height: 70px;
+}
+
+nav {
+  background-color: #000;
+}
+
+nav ul {
+  height: 70px;
+  margin-right: 50px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+nav li {
+  display: inline;
+  margin: 0 50px 0 50px;
+  padding-top: 25px;
+
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: #cccccc;
+}
+
+nav a::before {
+  content:  '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+/* Container For All */
+
+.all {
+  position: relative;
+  top: 70px;
+}
+
+/* Intro */
+
+.intro {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  max-width: 1000px;
+  justify-content: space-around;
+  color: #000;
+  margin: auto;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.intro p {
+  font-size: 30px;
+  font-style: italic;
+  text-align: justify;
+  max-width: 400px;
+}
+
+/* For Firms */
+
+#for-firms {
+  /* background-image: linear-gradient(120deg, #333, #111); */
+  background-image: linear-gradient(120deg, #1c2e40, #000);
+  /* background-color: #000; */
+  width: 100%;
+}
+
+#for-firms h1 {
+  font-weight: 500;
+  text-align: center;
+  flex-basis: 100%;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+#for-firms .text-content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1500px;
+  margin: auto;
+}
+
+#for-firms .text-content p {
+  max-width: 500px;
+  text-align: justify;
+  padding: 50px;
+  padding-top: 0;
+}
+
+/* For Interns */
+
+#for-interns {
+  /* background-image: linear-gradient(120deg, #fa5f4f, #c72c1c); */
+  /* background-color: #e74c3c; */
+  background-image: linear-gradient(120deg, #fc6b5b, #c72c1c);
+  width: 100%;
+}
+
+#for-interns h1 {
+  font-weight: 500;
+  text-align: center;
+  flex-basis: 100%;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+#for-interns .text-content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1500px;
+  margin: auto;
+}
+
+#for-interns .text-content p {
+  max-width: 500px;
+  text-align: justify;
+  padding: 50px;
+  padding-top: 0;
+}
+
+/* Contact Us */
+
+#contact-us {
+  background-color: #fff;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-around;
+  color: #000;
+}
+
+#contact-us p {
+  margin: 0.1rem;
+}
+
+#contact-us h1 {
+  text-transform: uppercase;
+  margin: 0.5rem;
+  margin-top: 2rem;
+}
+
+#contact-us button {
+  width: 150px;
+  margin: 0.1rem 0.1rem 2.8rem 0.1rem;
+  height: 40px;
+  background: none;
+  border: 1px solid #000;
+  border-radius: 16px;
+  -webkit-transition: 250ms;
+  -o-transition: 250ms;
+  transition: 250ms;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+#contact-us button:hover {
+  background-color: #000;
+  color: #ecf0f1;
+}
