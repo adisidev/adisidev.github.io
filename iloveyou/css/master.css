@@ -1,0 +1,300 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+/* Text Types */
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.25rem;
+  /* background-image: linear-gradient(120deg, #6a11cb, #2575fc); */
+  /* padding: 5px; */
+  /* border-radius: 15px; */
+  /* font-weight: 500; */
+  /* text-transform: uppercase; */
+}
+
+/* Header and Nav Bar */
+
+header {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+  z-index: 999;
+  /* border-bottom: solid 1px #fff; */
+  background-color: #000;
+}
+
+header img {
+  height: 70px;
+}
+
+nav {
+  background-color: #000;
+}
+
+nav ul {
+  height: 70px;
+  margin-right: 50px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+nav li {
+  display: inline;
+  margin: 0 50px 0 50px;
+  padding-top: 25px;
+
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: #cccccc;
+}
+
+nav a::before {
+  content:  '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+/* Container For All */
+
+.all {
+  position: relative;
+  top: 70px;
+}
+
+/* Intro */
+
+.intro {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  max-width: 1000px;
+  justify-content: space-around;
+  color: #000;
+  margin: auto;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.intro p {
+  font-size: 30px;
+  font-style: italic;
+  text-align: justify;
+  max-width: 400px;
+}
+
+.intro img {
+  width: 250px;
+  margin: 50px;
+}
+
+/* For Firms */
+
+#reasons {
+  /* background-image: linear-gradient(120deg, #333, #111); */
+  /* background-image: linear-gradient(120deg, #34495e, #000); */
+  background-image: linear-gradient(120deg, #12c2e9,#c471ed, #f64f59);
+  /* background-color: #000; */
+  width: 100%;
+}
+
+#reasons h1 {
+  font-weight: 500;
+  text-align: center;
+  flex-basis: 100%;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+#reasons .img-content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+}
+
+#reasons .img-content img {
+  max-width: 200px;
+  padding: 50px;
+  padding-top: 0;
+}
+
+#reasons .text-content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+}
+
+#reasons .text-content p {
+  max-width: 500px;
+  padding: 50px;
+  text-align: justify;
+  padding-top: 0;
+}
+
+/* Favourite Memories */
+
+#memories {
+  /* background-image: linear-gradient(120deg, #fa5f4f, #c72c1c); */
+  /* background-color: #e74c3c; */
+  background-image: linear-gradient(120deg, #222, #111);
+  /* background-image: linear-gradient(120deg, #141E30, #243B55); */
+  /* background-image: linear-gradient(120deg, #DC2424, #4A569D); */
+  width: 100%;
+}
+
+#memories h1 {
+  font-weight: 500;
+  text-align: center;
+  flex-basis: 100%;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+#memories .img-content .portrait {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  max-width: 1500px;
+  margin: auto;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+#memories .img-content .landscape {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  max-width: 1500px;
+  margin: auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+#memories figure {
+  margin: 25px;
+}
+
+#memories .portrait img {
+  width: 250px;
+  height: auto;
+}
+
+#memories .landscape img {
+  width: 400px;
+  height: auto;
+  margin: 10px;
+}
+
+/* Videos */
+
+#more-memories {
+  background-color: #fff;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-around;
+  -ms-align-items: center;
+  align-items: center;
+  color: #000;
+  text-transform: uppercase;
+}
+
+#more-memories h1 {
+  padding: 50px;
+}
+
+#more-memories video {
+  width: 1000px;
+  margin-bottom: 100px;
+}
+
+.coverimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.img1 {
+  background-image: url(../photos/school-garden.JPG);
+  padding-top: 50%;
+}
+
+.img2 {
+  background-image: url(../photos/garden-hug.JPG);
+  padding-top: 70%;
+}
+
+.img3 {
+  background-image: url(../photos/teachers-day.JPG);
+  padding-top: 75%;
+}
+
+.imgl {
+  background-image: url(../photos/farewell.JPG);
+  padding-top: 160%;
+}
