@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-27 Wed 11:59 -->
+<!-- 2021-02-04 Thu 02:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Special Snowflakes Specialising</title>
+<title>Oh! Caml On! Testing OCaml with Ocaml</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="CS GENG" />
+<meta name="author" content="M-x Author" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -224,202 +224,577 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Special Snowflakes Specialising</h1>
+<h1 class="title">Oh! Caml On! Testing OCaml with Ocaml</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org73205cf">1. Exercise 1</a></li>
-<li><a href="#orgc2bc005">2. Exercise 2</a></li>
-<li><a href="#org832009e">3. Exercise 3: Write down the four causes of a partial evaluator.</a></li>
+<li><a href="#orgf51ecba">1. Introduction</a></li>
+<li><a href="#org71f6365">2. Exercise 7: Finding the Type of a Given Expression</a></li>
+<li><a href="#org230f5ea">3. Exercise 9: Proof Tree for the Given Expression</a></li>
+<li><a href="#orgdf4834f">4. Exercise 10: Implementing and Testing the Successor Function</a></li>
+<li><a href="#org6b0f05d">5. Exercise 11: Unit Testing a Negation Function</a></li>
+<li><a href="#org375e90f">6. Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</a>
+<ul>
+<li><a href="#orgfca4185">6.1. Interlude</a></li>
+</ul>
+</li>
+<li><a href="#org07e0744">7. Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</a></li>
+<li><a href="#org72c0241">8. Recommended Exercises</a>
+<ul>
+<li><a href="#org22d292e">8.1. Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</a></li>
+<li><a href="#org3d100ef">8.2. Exercise 5: Followup to Exercise 4</a></li>
+<li><a href="#orgac2cd9f">8.3. Exercise 14: a unit test for the function summing the first consecutive natural numbers</a></li>
+</ul>
+</li>
+<li><a href="#org1a584c8">9. Conclusion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org73205cf" class="outline-2">
-<h2 id="org73205cf"><span class="section-number-2">1</span> Exercise 1</h2>
+<div id="outline-container-orgf51ecba" class="outline-2">
+<h2 id="orgf51ecba"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Analyze the quip “One person’s program is another program’s data.”, from its origins (“Quod ali cibus est aliis fuat acre venenum.” and “One man’s meat is another man’s poison.”) to its significance here.<br />
-</p>
-
-<p>
-<i>In a letter to Robert Hooke&#x2026;</i><br />
-</p>
-<div class="org-center">
-<p>
-“If I have seen further it is by standing on the shoulders of Giants” - Isaac Newton<br />
-</p>
-</div>
-<p>
-<b>Introduction to Exercise:</b><br />
-</p>
-
-<p>
-In order to solve this exercise, we started discussing the origins of the quote, and extrapolated its meaning to the aforementioned quip and what it says about the ‘collaborative’ nature of programming.<br />
-</p>
-
-<p>
-<b>Answer:</b><br />
-</p>
-
-<p>
-Firstly, let’s break down the phrase “One man’s meat is another man’s poison.”  This basically refers to the versatility of certain items. To take the quotation quite literally, it’s like how I, a vegetarian, don’t take meat because it makes me feel sluggish and lethargic, but for some people, meat is a godsend. Meat is ‘versatile’ because it functions as an item of pleasure for some people, but as an inedible item for vegetarians like me.<br />
-</p>
-
-<p>
-Okay, now let’s apply this concept to programming.<br />
-</p>
-
-<p>
-Programs, like meat, are also versatile in many ways! Some programmers write good programs, like a program that counts sheep. However, this sheep counting program could be data used within a grander scheme of things, such as an app that helps people sleep.<br />
-</p>
-
-<p>
-Or, more realistically, us programming students going on GitHub or Stack Overflow to refer to good programs and code to advance our understanding and build our own quirky projects.<br />
-</p>
-
-<p>
-In essence, and also to jive with our chosen quote, programs are versatile and can be used to do things different (“another program’s data”) from their previously intended function (“One person’s program).<br />
+In Week 3, we built upon the concepts we learned in Week 2. In this assignment, we apply our understanding of proof trees into OCaml to verify function types. As we had ample practice with proof trees and solidified our understanding last week, we realised how easy it was to construct proof trees now for functions. Furthermore, we solidified our understanding of unit tests, and learnt how useful unit tests are for testing a wide range of functions. Unit tests really helped us break down a problem into simple logical steps - which is a skill that will really help us in the future.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc2bc005" class="outline-2">
-<h2 id="orgc2bc005"><span class="section-number-2">2</span> Exercise 2</h2>
+<div id="outline-container-org71f6365" class="outline-2">
+<h2 id="org71f6365"><span class="section-number-2">2</span> Exercise 7: Finding the Type of a Given Expression</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Given a source program and its input, an interpreter executes <code>source_program</code> on input:<br />
+/Under the same conditions as that in Exercise 6, find the type of the expression fun x -&gt; fun y -&gt; 2 * x + y.<br />
+Recommendation: first peruse both Exercise 6 and Exercise 18 and their solution.<br />
 </p>
-<pre class="example" id="orgc6b2800">
-run interpreter (source_program, input) = output
+
+<p>
+First, we input the function into OCaml to get the following result:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> <span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">x</span> <span style="color: #f0e68c;">-&gt;</span> <span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">y</span> <span style="color: #f0e68c;">-&gt;</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">*</span> x <span style="color: #f0e68c;">+</span> y<span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> int <span style="color: #f0e68c;">-&gt;</span> int <span style="color: #f0e68c;">-&gt;</span> int <span style="color: #f0e68c;">=</span> <span style="color: #f0e68c;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">fun</span><span style="color: #f0e68c;">&gt;</span>
 </pre>
-<p>
-Typically, we run <code>source_program</code> on several inputs, not just one. So it is a good idea to specialize interpreter with respect to a given <code>source_program</code>.<br />
-</p>
+</div>
 
 <p>
-To be concrete, say that interpreter is an interpreter for Python written in OCaml, and that the S-m-n function specializes a program written in OCaml into another program written in OCaml.<br />
+Based on the OCaml output, we will be constructing a proof tree to the effect that the term fun x -&gt; fun y -&gt; 2 * x + y has the type int in any environment G:<br />
 </p>
+
+
+<div id="orgbfb242c" class="figure">
+<p><img src="Exercise_7:_Finding_the_Type_of_a_Given_Expression/2021-02-04_01-56-34_lookup_1.png" alt="2021-02-04_01-56-34_lookup_1.png" /><br />
+</p>
+</div>
 
 <p>
-Questions:<br />
+<b>Conclusion:</b><br />
+We have learnt to construct a proof tree to verify the type of a function with two variables, using the typing rules FUN, ADD, MUL, INT, <code>LOOKUP_FOUND</code>, and <code>LOOKUP_NOT_FOUND_YET</code>. We also learnt that it is important to include and consider the environment G in our proof tree. This allows us to specify how the individual variables x and y can exist as certain types in the specific environment.<br />
 </p>
-
-<ul class="org-ul">
-<li>In which language is <code>source_program</code> written?.<br /></li>
-</ul>
-
-<p>
-Okay, since Prof Danvy likes connecting Philosophy to Computer Science, let’s reason our answer in a logical, philosophical way that would make Aristotle proud.<br />
-</p>
-
-<p>
-<i>Premise 1:</i> An interpreter executes source programs.<br />
-<i>Premise 2:</i> The language an interpreter executes should be the same as the language the source program is written in.<br />
-<i>Premise 3:</i> The interpreter executes Python.<br />
-</p>
-
-<p>
-<b>Conclusion:</b> Hence, the language the <code>source_program</code> is written in is Python.<br />
-</p>
-
-<ul class="org-ul">
-<li>Apply the S-1-1 function appropriately to specialize the interpreter with respect to <code>source_program</code>, and characterize its result.<br /></li>
-</ul>
-<p>
-We first instantiate the characteristic equations:<br />
-</p>
-
-<pre class="example" id="orgeab6c1a">
-run p (x, y) = result
-S-1-1 (p, x) = p_x
-   run p_x y = result
-</pre>
-
-<p>
-with:<br />
-</p>
-<ul class="org-ul">
-<li><code>interpreter</code> for <code>p</code><br /></li>
-<li><code>source_program</code> for <code>x</code><br /></li>
-<li><code>input</code> for <code>y</code><br /></li>
-<li><code>output</code> for <code>result</code><br /></li>
-</ul>
-
-<p>
-The result reads:<br />
-</p>
-<pre class="example" id="org6b4e4ef">
-run interpreter (source_program, input) = output
-S-1-1 (interpreter, source_program) = interpreter_source_program
-   run interpreter_source_program input = output
-</pre>
-
-<p>
-And then the questions are:<br />
-</p>
-
-<ul class="org-ul">
-<li>in which language is <code>interpreter_source_program</code> written?<br /></li>
-<li>what is <code>interpreter_source_program</code>, i.e., what does it do when it is executed?<br /></li>
-<li>what is the relation between <code>source_program</code> and <code>interpreter_source_program</code>?<br /></li>
-</ul>
-
-
-<ol class="org-ol">
-<li><code>interpreter_source_program</code> must be written in the same language as the interpreter, as <code>interpreter_source_program</code> is simply a specialised version of the <code>source_program</code> based on the interpreter. Hence, <code>interpreter_source_program</code> must be written in OCaml.<br /></li>
-<li>When <code>interpreter_source_program</code> is executed, it evaluates the <b>input</b> and gives the <b>output</b>. This result would be the same as if we were to run the interpreter with the <code>source_program</code> <b>and</b> said input.<br /></li>
-<li>To me, this mimics the structure of a compiled program, where instead of the interpreter having to interpret the <code>source_program</code> every time we want to run it, the <code>source_program</code> simply becomes an executable. Instead of running the interpreter for the <code>source_progran</code> every time, <code>interpreter_source_program</code> becomes a shortcut on which we can run any input.<br /></li>
-</ol>
 </div>
 </div>
 
-<div id="outline-container-org832009e" class="outline-2">
-<h2 id="org832009e"><span class="section-number-2">3</span> Exercise 3: Write down the four causes of a partial evaluator.</h2>
+<div id="outline-container-org230f5ea" class="outline-2">
+<h2 id="org230f5ea"><span class="section-number-2">3</span> Exercise 9: Proof Tree for the Given Expression</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<b>Introduction to Exercise:</b><br />
+<i>Draw a proof tree to justify your answer for Item e. of Exercise 8, under conditions similar to that in Exercise 6.</i><br />
+</p>
+
+<p>
+<i><b>Item e of exercise 8:</b> Exhibit an OCaml expression that has type int -&gt; int -&gt; int, and briefly justify your answer.</i><br />
+</p>
+
+<p>
+The function we used to satisfy item e of Exercise 8 is <b>fun x y -&gt; x + y</b>, since it has the same type as the one mentioned above.<br />
+</p>
+
+
+<div id="org1dfc517" class="figure">
+<p><img src="Exercise_9:_Proof_Tree_for_the_Given_Expression/2021-02-04_01-59-52_lookup_2.png" alt="2021-02-04_01-59-52_lookup_2.png" /><br />
+</p>
+</div>
+
+<p>
+Another solution (by one of our team mates) function we used to satisfy item e of Exercise 8 is <b>(+) x y</b>, since it has the same type as the one mentioned above. We are not familiar with this proof tree so we were hoping to run it past you.<br />
+</p>
+
+
+
+<div id="orgd88aa79" class="figure">
+<p><img src="Exercise_9:_Proof_Tree_for_the_Given_Expression/2021-02-04_02-03-17_lookup_3.png" alt="2021-02-04_02-03-17_lookup_3.png" /><br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdf4834f" class="outline-2">
+<h2 id="orgdf4834f"><span class="section-number-2">4</span> Exercise 10: Implementing and Testing the Successor Function</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<i>a. Write a unit-test function for the successor function, i.e., the function that, given an integer, returns this integer, plus 1:</i><br />
+</p>
+
+<p>
+We know that for the inputs 0, 1, 2, 3, 4, 5, and 6, to the successor function we expect to get the 1, 2, 3, 4, 5, 6, and 7 respectively. We therefore get the test <code>test_successor</code>.<br />
+</p>
+
+
+<div id="org19a6d7a" class="figure">
+<p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-03-59_code_1.png" alt="2021-02-04_02-03-59_code_1.png" /><br />
+</p>
+</div>
+
+<p>
+<i>b. Verify that an OCaml implementation of the successor function passes your unit test, i.e., that applying your unit-test function to this OCaml implementation of the successor function yields true:</i><br />
+</p>
+
+<p>
+The function f takes the integer x as input and outputs the integer x+1. This is an implementation of the successor function. We then apply the test to this function f. The test yields the Boolean true as an output. This means that the function <b>does</b> pass the test.<br />
+</p>
+
+
+<div id="orgc6573e9" class="figure">
+<p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-04-22_code_2.png" alt="2021-02-04_02-04-22_code_2.png" /><br />
+</p>
+</div>
+
+<p>
+<i>c. Verify that an OCaml function that does not implement the successor function fails your unit test:</i><br />
+</p>
+
+
+
+<div id="org60e57e4" class="figure">
+<p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-06-12_code_3.png" alt="2021-02-04_02-06-12_code_3.png" /><br />
+</p>
+</div>
+
+<p>
+The function boo takes the integer x as input and outputs the integer x+7. This is <b>not</b> an implementation of the successor function. We then apply the test to this function boo. The test yields the boolean false as an output. This means that the function <b>does not</b> pass the test.<br />
+</p>
+
+<p>
+<b>Conclusion:</b><br />
+In this exercise we learned how to apply a unit test to the successor function and then verified that there exists at least one function in OCaml that does not pass this test. We also noticed that one simple way of having a unit test is enumerating the first few expected results of the function. We also expired how easy it is to ‘fool’ this test had we known it before writing our program, an instance that professor referred to in class.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b0f05d" class="outline-2">
+<h2 id="org6b0f05d"><span class="section-number-2">5</span> Exercise 11: Unit Testing a Negation Function</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<i>a. Write a unit-test function for the negation function, i.e., the function that, given a Boolean, returns this Boolean, negated:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">test_not</span><span style="color: #7590db;"> candidate</span> <span style="color: #f0e68c;">=</span>
+    <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">true</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">false</span><span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+</pre>
+</div>
+
+<p>
+This unit-test function negates the Boolean value that is passed to it, for example, if the candidate is true, it would return not true, and vice versa for false.<br />
+</p>
+
+<p>
+<i>b. Verify that the predeclared OCaml implementation of the negation function passes your unit test, i.e., that applying your unit-that function to this OCaml implementation of the negation function yields true:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_not <span style="color: #f0e68c;">not</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span>
+</pre>
+</div>
+
+<p>
+On running the code above, it returns bool = true. The reason why this works is that it runs the OCaml implementation of the negation function through the unit-test to see if it performs the same functions. If it does, it returns true. Hence, that means that the negation function passes the unit test.<br />
+</p>
+
+<p>
+<i>c. Verify that an OCaml function that does not implement the negation function fails your unit test:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_not <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">b</span> <span style="color: #f0e68c;">-&gt;</span> b<span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span>
+</pre>
+</div>
+
+<p>
+In this case, we run a function that is not the negation function through the unit test. The abovementioned function returns the same value as its parameter, for example, true for true and false for false. Since this is the opposite of the negation function, it does not pass the unit test and hence, the unit test returns false.<br />
+</p>
+
+<p>
+<i>d. Implement your own version of the negation function using an if-expression:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">neg_v1</span><span style="color: #7590db;"> b</span> <span style="color: #f0e68c;">=</span> <span style="color: #4f97d7; font-weight: bold;">if</span> b <span style="color: #4f97d7; font-weight: bold;">then</span> <span style="color: #a45bad;">false</span> <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #a45bad;">true</span><span style="color: #ff4500;">;;</span>
+<span style="color: #b2b2b2; background-color: #292b2e;">The</span> neg_v1 <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #7590db;">works</span> <span style="color: #4f97d7; font-weight: bold;">as</span> follows<span style="color: #f0e68c;">:</span>
+</pre>
+</div>
+
+<p>
+if b is true, it will return false because the if-condition will have been satisfied<br />
+if b is false, it will return true because the if-condition will not have been satisfied and it would run the else condition<br />
+Hence, <code>neg_v1</code> works as a negation function.<br />
+</p>
+
+<p>
+<i>e. Verify that your implementation passes your unit test:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_not neg_v1<span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span>
+</pre>
+</div>
+
+<p>
+Since <code>neg_v1</code> performs the same function as a negation function, it should pass the unit test, which it does since the unit test returns true.<br />
+</p>
+
+<p>
+<i>f. Implement your own version of the negation function using the equality predicate for Booleans:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">neg_v2</span><span style="color: #7590db;"> b</span> <span style="color: #f0e68c;">=</span>
+b <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #ff4500;">;;</span>
+</pre>
+</div>
+
+<p>
+This version of the negation function follows the equality predicate for Booleans.<br />
+if b is true, the b = false predicate would return false, since true is not equal to false.<br />
+if b is false, the b = false predicate would return true, since false is equal to false.<br />
+Hence, this function works as a negation function as well.<br />
+</p>
+
+<p>
+<i>g. Verify that your implementation passes your unit test:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_not neg_v2<span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span>
+</pre>
+</div>
+
+<p>
+Since <code>neg_v2</code> performs the same function as a negation function, it should pass the unit test, which it does since the unit test returns true.<br />
+</p>
+
+<p>
+<b>Conclusion:</b><br />
+This exercise made us think about the different ways we can perform the same function - using predefined functions (not), conditional statements (if-else) and equality predicates. The logic might be the same but the syntax of the function and the way it is executed largely depends on the approach we’re taking in order to attain the result we’re looking for. Unit testing really helped us verify our results and ensure our functions were performing satisfactorily.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org375e90f" class="outline-2">
+<h2 id="org375e90f"><span class="section-number-2">6</span> Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<i>a. Write a unit-test function for a twice-less-than comparison function, i.e., the function that, given three integers, returns true if the first is smaller than the second and the second smaller to the third, and otherwise returns false:</i><br />
+</p>
+
+<p>
+Unfortunately, due to the recommended word count of this report, I was unable to put down the full unit-test I (I? ) wrote. I decided to use a small C++ program that I wrote to generate all possible candidates between 1-10 in OCaml’s syntax. Here is an excerpt of a few of the candidates. Additionally, the C++ program may be found <a href="https://pastebin.com/GzFvUWHx">here</a> (unlisted) and the full output may be found <a href="https://pastebin.com/kqFZe4k8">here</a> (also unlisted).<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> <span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">test_twice_less_than</span><span style="color: #7590db;"> candidate</span> <span style="color: #f0e68c;">=</span>
+    <span style="color: #4f97d7;">(</span>candidate <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">3</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">3</span><span style="color: #bc6ec5;">)</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">3</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #f0e68c;">-</span><span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #2aa1ae; background-color: #292e34;">(* </span><span style="color: #2aa1ae; background-color: #292e34;">negative numbers were added by hand </span><span style="color: #2aa1ae; background-color: #292e34;">*)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">5</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">6</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">7</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">8</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">9</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">10</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">5</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">6</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">7</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">8</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">9</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">10</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span><span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+</pre>
+</div>
+
+
+<p>
+Rest assured, I tested the full unit-test and not the excerpt.<br />
+</p>
+</div>
+
+<div id="outline-container-orgfca4185" class="outline-3">
+<h3 id="orgfca4185"><span class="section-number-3">6.1</span> Interlude</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Harald: How do we know that the C++ program is correct?<br />
+</p>
+
+<p>
+Brynja: Perhaps, we could write a unit test for the function that generates candidates?<br />
+</p>
+
+<p>
+Mimer: A unit test for a unit test?<br />
+</p>
+
+<p>
+Loki: How self-referential can you get!<br />
+</p>
+
+<p>
+Brynja: Alternatively, could we borrow our own OCaml function that we have written below to verify whether the C++ program is correct?<br />
+</p>
+
+<p>
+Mimer: Wouldn’t that just be pointless? The OCaml function would only confirm itself. The function, a very vain one at that, would basically claim itself to be correct.<br />
+</p>
+
+<p>
+Brynja: Maybe, just maybe, we could test two different implementations of a function against each other!<br />
+</p>
+
+
+<p>
+<i>b. Verify that an OCaml implementation of the twice-less-than comparison function passes your unit test, i.e., that applying your unit test function to this OCaml implementation of the twice-less-than comparison function yields <code>true</code>:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_twice_less_than <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">i j k</span> <span style="color: #f0e68c;">-&gt;</span> i <span style="color: #f0e68c;">&lt;</span> j <span style="color: #f0e68c;">&amp;&amp;</span> j <span style="color: #f0e68c;">&lt;</span> k<span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">true</span>
+</pre>
+</div>
+
+<p>
+<i>Besides testing whether its first argument is smaller than its second argument and whether its second argument is smaller than its third argument, should your OCaml implementation of the twice-less-than comparison function also test whether its first argument is smaller than its third argument? Why?</i><br />
+</p>
+
+<p>
+No, the twice-less-than comparison function does not need to test whether the first argument is smaller than the third argument.<br />
+</p>
+
+<p>
+Premise 1: A is smaller than B<br />
+Premise 2: B is smaller than C<br />
+</p>
+
+<p>
+Conclusion: Since, A is smaller than B, and B is smaller than C (from P1 and P2), A must be smaller than C.<br />
+</p>
+
+<p>
+Mathematically,<br />
+</p>
+<pre class="example" id="org1a63dbd">
+If A &lt; B
+and B &lt; C
+Together, A &lt; B &lt; C
+Hence, A &lt; C
+</pre>
+
+<p>
+In other words, A must be smaller than C for it to be smaller than B. Hence, the function does not need to test the first argument against the third argument to confirm that the first argument is smaller. Simply checking the first argument against the second, and, subsequently, checking the second argument against the third would suffice.<br />
+</p>
+
+<p>
+<i>c. Verify that an OCaml function that does not implement the twice-less-than comparison function fails your unit test:</i><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_twice_less_than <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">i j k</span> <span style="color: #f0e68c;">-&gt;</span> i <span style="color: #f0e68c;">&lt;=</span> j <span style="color: #f0e68c;">&amp;&amp;</span> j <span style="color: #f0e68c;">&lt;=</span> k<span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span>
+</pre>
+</div>
+
+<p>
+This function fails the test as “j” may be equal to “i”, which in turn may be equal to “k.” This should return false. However, the above function would return true. We may consider the candidate “1 1 1” as an example, which should return false but this function would return true.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> test_twice_less_than <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">fun</span> <span style="color: #7590db;">i j k</span> <span style="color: #f0e68c;">-&gt;</span> i <span style="color: #f0e68c;">&gt;</span> j <span style="color: #f0e68c;">&amp;&amp;</span> j <span style="color: #f0e68c;">&gt;</span> k<span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> bool <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">false</span>
+</pre>
+</div>
+
+<p>
+This function fails the test as “i” would always be greater than “j”, which in turn would be greater than “k”. For instance, we may consider the candidate “(-1) (-2) (-3)” as an example. This candidate should return false, but this function would return true.<br />
+</p>
+
+<p>
+<b>Conclusion:</b><br />
+A great take-away from this activity is the limitation of unit-tests! No matter how many candidates the C++ program may generate, the unit-test would only be able to test for those candidates. Essentially, we only know that those candidates work fine with the function. However, we do not know about the other potentially infinite candidates.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07e0744" class="outline-2">
+<h2 id="org07e0744"><span class="section-number-2">7</span> Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<i>Observing that the function (fun i -&gt; 2 * i + 1) maps a non-negative integer n to the n+1‘th odd natural number, write a unit-test function for a function that, given a non-negative integer n, computes the sum of the n+1 first odd numbers.</i><br />
+</p>
+
+<p>
+We want to write a unit test for a function that, given a non-negative integer n, computes the sum of the n+1 first odd numbers.<br />
+In order to do that, we calculate for every candidate the sum of the n+1th first odd numbers.<br />
+</p>
+
+<p>
+For candidate 0, <b>we expect</b> the function to return: 1<br />
+For candidate 1, <b>we expect</b> the function to return: 1+3 = 4<br />
+For candidate 2, <b>we expect</b> the function to return: 1+3+5 = 9<br />
+For candidate 3, <b>we expect</b> the function to return: 1+3+5+7 = 16<br />
+For candidate 4, <b>we expect</b> the function to return: 1+3+5+7+9 = 25<br />
+For candidate 5, <b>we expect</b> the function to return: 1+3+5+7+9+11= 36<br />
+For candidate 6, <b>we expect</b> the function to return: 1+3+5+7+9+11+13= 49<br />
+For candidate 7, <b>we expect</b> the function to return: 1+3+5+7+9+11+13+15= 64<br />
+For candidate 8, <b>we expect</b> the function to return: 1+3+5+7+9+11+13+15+17= 81<br />
+For candidate 9, <b>we expect</b> the function to return: 1+3+5+7+9+11+13+15+17+19= 100<br />
+</p>
+
+<p>
+Therefore we implement the following test in OCaml:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> <span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">next_square</span><span style="color: #7590db;"> candidate</span> <span style="color: #f0e68c;">=</span>
+    <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">4</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">9</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">16</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">25</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">5</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">36</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">6</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">49</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">7</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">64</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">8</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">81</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span>  <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">9</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">100</span><span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+</pre>
+</div>
+
+<p>
+The function that the prompt proposed can be verified using this test which would yield the Boolean true if it passes or false if it does not.<br />
+</p>
+
+<p>
+<b>Conclusion:</b><br />
+This unit test shows us that we are able to create unit tests in OCaml that are able to execute more complex functions. In the process of creating this unit test, we also discovered that sometimes the results of our unit test can be re-expressed to simpler expressions for OCaml to process, such as square numbers to represent the “sum of n+ 1 first odd numbers”.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72c0241" class="outline-2">
+<h2 id="org72c0241"><span class="section-number-2">8</span> Recommended Exercises</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org22d292e" class="outline-3">
+<h3 id="org22d292e"><span class="section-number-3">8.1</span> Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+<i>Can you visualize the multiplication function hidden behind the infix notation *, as we did just above for addition (+), subtraction (-), quotient (</i>), modulo (mod), etc.?/<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> <span style="color: #4f97d7;">(</span> <span style="color: #f0e68c;">*</span> <span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+<span style="color: #f0e68c;">-</span> <span style="color: #f0e68c;">:</span> int <span style="color: #f0e68c;">-&gt;</span> int <span style="color: #f0e68c;">-&gt;</span> int <span style="color: #f0e68c;">=</span> <span style="color: #f0e68c;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">fun</span><span style="color: #f0e68c;">&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d100ef" class="outline-3">
+<h3 id="org3d100ef"><span class="section-number-3">8.2</span> Exercise 5: Followup to Exercise 4</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+<i>This exercise is a follow-up to Exercise 4. After typing (*);; at the toplevel, type *)33;;<br />
+What happens? Why does it happen? Shouldn’t you write ( * ) instead?</i><br />
+</p>
+
+<p>
+We need to use ( * ) instead of (<b>) because (</b> indicates the start of a comment in OCaml. It assumes *) to be the end of the comment and thus, the only code it executes is 33.<br />
+</p>
+
+<p>
+<b>Conclusion for Exercises 4 and 5:</b><br />
+</p>
+
+<p>
+Although * is similar in syntax to the rest of the mathematical operators, the OCaml comment command causes the multiplication function to be slightly different in notation. Constant vigilance and a little bit of Googling in times of error is essential!<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac2cd9f" class="outline-3">
+<h3 id="orgac2cd9f"><span class="section-number-3">8.3</span> Exercise 14: a unit test for the function summing the first consecutive natural numbers</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+<i>Inspired by the factorial function that maps a non-negative integer n to the product from 1 to n (i.e., 1 * 2 * 3 * &#x2026; * n), write a unit-test function for a sumtorial function that maps a non-negative integer n to the sum from 0 to n (i.e., 0 + 1 + 2 + 3 + &#x2026; + n, i.e., the sum of the n+1 first natural numbers).</i><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f0e68c;">#</span> <span style="color: #f5deb3; font-weight: bold;">let</span> <span style="color: #bc6ec5; font-weight: bold;">sumtorial</span><span style="color: #7590db;"> candidate</span> <span style="color: #f0e68c;">=</span>
+   <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span> <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span> <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span> <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">3</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span> <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">4</span><span style="color: #4f97d7;">)</span>
+<span style="color: #f0e68c;">&amp;&amp;</span> <span style="color: #4f97d7;">(</span>candidate <span style="color: #a45bad;">5</span> <span style="color: #f0e68c;">=</span> <span style="color: #a45bad;">0</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">1</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">2</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">3</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">4</span> <span style="color: #f0e68c;">+</span> <span style="color: #a45bad;">5</span><span style="color: #4f97d7;">)</span><span style="color: #ff4500;">;;</span>
+</pre>
+</div>
+
+<p>
+<b>Conclusion:</b><br />
+This was quite similar to the factorial function explained in the example. Doing multiple unit test exercises really helped solidify our understanding of its importance. It helped us think logically and break a program down into smaller, more manageable logical steps - a skill that will help us in the future.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1a584c8" class="outline-2">
+<h2 id="org1a584c8"><span class="section-number-2">9</span> Conclusion</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+From this assignment, we saw in particular the relevance of proof trees in our code for OCaml. We also got several takeaways from the unit test sections, namely a deeper understanding of how unit tests can help execute more complex functions. Moreover, it also helped develop our critical thinking by breaking a program down into smaller stages, which helped clarify each logical step to solving problems.<br />
+</p>
+
+<p>
+We also learnt a limitation of unit-tests; unit-tests only validate particular candidates. In this way, they only show the presence of bugs, not the absence of bugs!<br />
 </p>
 
 <div class="org-center">
 <p>
-"Patience is bitter, but its fruit is sweet." - Aristotle.<br />
+“Program testing can be used to show the presence of bugs, but never to show their absence!” ― Edsger W. Dijkstra<br />
 </p>
 </div>
-
-<p>
-This exercise requires an in-depth understanding of what a partial evaluator is and how to communicate its function. In order to achieve this, we went through the lecture notes and had to understand the S-m-n function and its various steps involved. Our group developed several analogies and tried to connect it to the technical terms and steps in order to grasp the concepts. This took us quite some time but as our buddy Aristotle said, the fruit of finally understanding this theorem and its role was very very sweet indeed.<br />
-</p>
-
-<p>
-A partial evaluator evaluates a part of a program and outputs a new program which only consists of the remainder of the program based on a particular input. The part of the program it evaluates depends on the input. Using the input, it evaluates the program to whatever extent it can with the information it has. Now, to evaluate the remainder of the program, we require more input. The partially evaluated program is known as the residual program.<br />
-</p>
-
-<p>
-In order to make the execution of a program more efficient, a partial evaluator acts on a part of the source program with respect to its given input and integrates it into a residual program.<br />
-</p>
-
-<ul class="org-ul">
-<li><i>Final cause:</i> Make the execution of a program more efficient<br /></li>
-<li><i>Material cause:</i> Input and source program<br /></li>
-<li><i>Formal cause:</i>  Integrates a part of the source program into a new program that is a residual program<br /></li>
-<li><i>Efficient cause:</i> A partial evaluator acts on a part of the source program<br /></li>
-</ul>
-
-<p>
-<b>Takeaways:</b> <br />
-</p>
-
-<p>
-This exercise increased our awareness of what a partial evaluator does and how it functions. As such, we are able to understand how a partial evaluator fits within the bigger picture of making programs more efficient and understanding the concept of specialisation.<br />
-</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: CS GENG</p>
-<p class="date">Created: 2021-01-27 Wed 11:59</p>
+<p class="author">Author: M-x Author</p>
+<p class="date">Created: 2021-02-04 Thu 02:30</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
