@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-04 Thu 02:30 -->
+<!-- 2021-02-04 Thu 11:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Oh! Caml On! Testing OCaml with Ocaml</title>
@@ -229,31 +229,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf51ecba">1. Introduction</a></li>
-<li><a href="#org71f6365">2. Exercise 7: Finding the Type of a Given Expression</a></li>
-<li><a href="#org230f5ea">3. Exercise 9: Proof Tree for the Given Expression</a></li>
-<li><a href="#orgdf4834f">4. Exercise 10: Implementing and Testing the Successor Function</a></li>
-<li><a href="#org6b0f05d">5. Exercise 11: Unit Testing a Negation Function</a></li>
-<li><a href="#org375e90f">6. Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</a>
+<li><a href="#org82b611f">1. Introduction</a></li>
+<li><a href="#org7a5b3ce">2. Exercise 7: Finding the Type of a Given Expression</a></li>
+<li><a href="#org964e5c5">3. Exercise 9: Proof Tree for the Given Expression</a></li>
+<li><a href="#org5b058d8">4. Exercise 10: Implementing and Testing the Successor Function</a></li>
+<li><a href="#org3eba625">5. Exercise 11: Unit Testing a Negation Function</a></li>
+<li><a href="#org351819e">6. Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</a>
 <ul>
-<li><a href="#orgfca4185">6.1. Interlude</a></li>
+<li><a href="#org15c3bde">6.1. Interlude</a></li>
 </ul>
 </li>
-<li><a href="#org07e0744">7. Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</a></li>
-<li><a href="#org72c0241">8. Recommended Exercises</a>
+<li><a href="#orgff60339">7. Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</a></li>
+<li><a href="#org7535b50">8. Recommended Exercises</a>
 <ul>
-<li><a href="#org22d292e">8.1. Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</a></li>
-<li><a href="#org3d100ef">8.2. Exercise 5: Followup to Exercise 4</a></li>
-<li><a href="#orgac2cd9f">8.3. Exercise 14: a unit test for the function summing the first consecutive natural numbers</a></li>
+<li><a href="#org05e2611">8.1. Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</a></li>
+<li><a href="#org8b1150c">8.2. Exercise 5: Followup to Exercise 4</a></li>
+<li><a href="#orgf65757c">8.3. Exercise 14: a unit test for the function summing the first consecutive natural numbers</a></li>
 </ul>
 </li>
-<li><a href="#org1a584c8">9. Conclusion</a></li>
+<li><a href="#org5594aa6">9. Conclusion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf51ecba" class="outline-2">
-<h2 id="orgf51ecba"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org82b611f" class="outline-2">
+<h2 id="org82b611f"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In Week 3, we built upon the concepts we learned in Week 2. In this assignment, we apply our understanding of proof trees into OCaml to verify function types. As we had ample practice with proof trees and solidified our understanding last week, we realised how easy it was to construct proof trees now for functions. Furthermore, we solidified our understanding of unit tests, and learnt how useful unit tests are for testing a wide range of functions. Unit tests really helped us break down a problem into simple logical steps - which is a skill that will really help us in the future.<br />
@@ -261,8 +261,8 @@ In Week 3, we built upon the concepts we learned in Week 2. In this assignment, 
 </div>
 </div>
 
-<div id="outline-container-org71f6365" class="outline-2">
-<h2 id="org71f6365"><span class="section-number-2">2</span> Exercise 7: Finding the Type of a Given Expression</h2>
+<div id="outline-container-org7a5b3ce" class="outline-2">
+<h2 id="org7a5b3ce"><span class="section-number-2">2</span> Exercise 7: Finding the Type of a Given Expression</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 /Under the same conditions as that in Exercise 6, find the type of the expression fun x -&gt; fun y -&gt; 2 * x + y.<br />
@@ -284,7 +284,7 @@ Based on the OCaml output, we will be constructing a proof tree to the effect th
 </p>
 
 
-<div id="orgbfb242c" class="figure">
+<div id="org8c848b1" class="figure">
 <p><img src="Exercise_7:_Finding_the_Type_of_a_Given_Expression/2021-02-04_01-56-34_lookup_1.png" alt="2021-02-04_01-56-34_lookup_1.png" /><br />
 </p>
 </div>
@@ -296,8 +296,8 @@ We have learnt to construct a proof tree to verify the type of a function with t
 </div>
 </div>
 
-<div id="outline-container-org230f5ea" class="outline-2">
-<h2 id="org230f5ea"><span class="section-number-2">3</span> Exercise 9: Proof Tree for the Given Expression</h2>
+<div id="outline-container-org964e5c5" class="outline-2">
+<h2 id="org964e5c5"><span class="section-number-2">3</span> Exercise 9: Proof Tree for the Given Expression</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <i>Draw a proof tree to justify your answer for Item e. of Exercise 8, under conditions similar to that in Exercise 6.</i><br />
@@ -312,7 +312,7 @@ The function we used to satisfy item e of Exercise 8 is <b>fun x y -&gt; x + y</
 </p>
 
 
-<div id="org1dfc517" class="figure">
+<div id="org8b635fe" class="figure">
 <p><img src="Exercise_9:_Proof_Tree_for_the_Given_Expression/2021-02-04_01-59-52_lookup_2.png" alt="2021-02-04_01-59-52_lookup_2.png" /><br />
 </p>
 </div>
@@ -323,15 +323,15 @@ Another solution (by one of our team mates) function we used to satisfy item e o
 
 
 
-<div id="orgd88aa79" class="figure">
+<div id="orgabc3f15" class="figure">
 <p><img src="Exercise_9:_Proof_Tree_for_the_Given_Expression/2021-02-04_02-03-17_lookup_3.png" alt="2021-02-04_02-03-17_lookup_3.png" /><br />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgdf4834f" class="outline-2">
-<h2 id="orgdf4834f"><span class="section-number-2">4</span> Exercise 10: Implementing and Testing the Successor Function</h2>
+<div id="outline-container-org5b058d8" class="outline-2">
+<h2 id="org5b058d8"><span class="section-number-2">4</span> Exercise 10: Implementing and Testing the Successor Function</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <i>a. Write a unit-test function for the successor function, i.e., the function that, given an integer, returns this integer, plus 1:</i><br />
@@ -342,7 +342,7 @@ We know that for the inputs 0, 1, 2, 3, 4, 5, and 6, to the successor function w
 </p>
 
 
-<div id="org19a6d7a" class="figure">
+<div id="orgfa1e67a" class="figure">
 <p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-03-59_code_1.png" alt="2021-02-04_02-03-59_code_1.png" /><br />
 </p>
 </div>
@@ -356,7 +356,7 @@ The function f takes the integer x as input and outputs the integer x+1. This is
 </p>
 
 
-<div id="orgc6573e9" class="figure">
+<div id="org9342a8f" class="figure">
 <p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-04-22_code_2.png" alt="2021-02-04_02-04-22_code_2.png" /><br />
 </p>
 </div>
@@ -367,7 +367,7 @@ The function f takes the integer x as input and outputs the integer x+1. This is
 
 
 
-<div id="org60e57e4" class="figure">
+<div id="org2a03864" class="figure">
 <p><img src="Exercise_10:_Implementing_and_Testing_the_Successor_Function/2021-02-04_02-06-12_code_3.png" alt="2021-02-04_02-06-12_code_3.png" /><br />
 </p>
 </div>
@@ -383,8 +383,8 @@ In this exercise we learned how to apply a unit test to the successor function a
 </div>
 </div>
 
-<div id="outline-container-org6b0f05d" class="outline-2">
-<h2 id="org6b0f05d"><span class="section-number-2">5</span> Exercise 11: Unit Testing a Negation Function</h2>
+<div id="outline-container-org3eba625" class="outline-2">
+<h2 id="org3eba625"><span class="section-number-2">5</span> Exercise 11: Unit Testing a Negation Function</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <i>a. Write a unit-test function for the negation function, i.e., the function that, given a Boolean, returns this Boolean, negated:</i><br />
@@ -497,8 +497,8 @@ This exercise made us think about the different ways we can perform the same fun
 </div>
 </div>
 
-<div id="outline-container-org375e90f" class="outline-2">
-<h2 id="org375e90f"><span class="section-number-2">6</span> Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</h2>
+<div id="outline-container-org351819e" class="outline-2">
+<h2 id="org351819e"><span class="section-number-2">6</span> Exercise 13: Unit Testing a Twice-Less-Than Comparison Function</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <i>a. Write a unit-test function for a twice-less-than comparison function, i.e., the function that, given three integers, returns true if the first is smaller than the second and the second smaller to the third, and otherwise returns false:</i><br />
@@ -547,8 +547,8 @@ Rest assured, I tested the full unit-test and not the excerpt.<br />
 </p>
 </div>
 
-<div id="outline-container-orgfca4185" class="outline-3">
-<h3 id="orgfca4185"><span class="section-number-3">6.1</span> Interlude</h3>
+<div id="outline-container-org15c3bde" class="outline-3">
+<h3 id="org15c3bde"><span class="section-number-3">6.1</span> Interlude</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Harald: How do we know that the C++ program is correct?<br />
@@ -609,7 +609,7 @@ Conclusion: Since, A is smaller than B, and B is smaller than C (from P1 and P2)
 <p>
 Mathematically,<br />
 </p>
-<pre class="example" id="org1a63dbd">
+<pre class="example" id="org45c18df">
 If A &lt; B
 and B &lt; C
 Together, A &lt; B &lt; C
@@ -646,14 +646,14 @@ This function fails the test as “i” would always be greater than “j”, wh
 
 <p>
 <b>Conclusion:</b><br />
-A great take-away from this activity is the limitation of unit-tests! No matter how many candidates the C++ program may generate, the unit-test would only be able to test for those candidates. Essentially, we only know that those candidates work fine with the function. However, we do not know about the other potentially infinite candidates.<br />
+A great take-away from this activity is the limitation of unit-tests! No matter how many candidates the C++ program may generate, the unit-test would only be able to test for those candidates. Essentially, we only know that those candidates work fine with the function. However, we do not know about the other potentially infinite candidates. Hence, even after testing 1000 candidates, the unit-test cannot say that the program is free of bugs.<br />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org07e0744" class="outline-2">
-<h2 id="org07e0744"><span class="section-number-2">7</span> Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</h2>
+<div id="outline-container-orgff60339" class="outline-2">
+<h2 id="orgff60339"><span class="section-number-2">7</span> Exercise 15: Unit Test for the Function Summing the First Consecutive Odd Natural Numbers</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <i>Observing that the function (fun i -&gt; 2 * i + 1) maps a non-negative integer n to the n+1‘th odd natural number, write a unit-test function for a function that, given a non-negative integer n, computes the sum of the n+1 first odd numbers.</i><br />
@@ -707,12 +707,12 @@ This unit test shows us that we are able to create unit tests in OCaml that are 
 </div>
 </div>
 
-<div id="outline-container-org72c0241" class="outline-2">
-<h2 id="org72c0241"><span class="section-number-2">8</span> Recommended Exercises</h2>
+<div id="outline-container-org7535b50" class="outline-2">
+<h2 id="org7535b50"><span class="section-number-2">8</span> Recommended Exercises</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org22d292e" class="outline-3">
-<h3 id="org22d292e"><span class="section-number-3">8.1</span> Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</h3>
+<div id="outline-container-org05e2611" class="outline-3">
+<h3 id="org05e2611"><span class="section-number-3">8.1</span> Exercise 4: Visualizing the Multiplication Function Hidden Behind the x Notation</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 <i>Can you visualize the multiplication function hidden behind the infix notation *, as we did just above for addition (+), subtraction (-), quotient (</i>), modulo (mod), etc.?/<br />
@@ -726,16 +726,16 @@ This unit test shows us that we are able to create unit tests in OCaml that are 
 </div>
 </div>
 
-<div id="outline-container-org3d100ef" class="outline-3">
-<h3 id="org3d100ef"><span class="section-number-3">8.2</span> Exercise 5: Followup to Exercise 4</h3>
+<div id="outline-container-org8b1150c" class="outline-3">
+<h3 id="org8b1150c"><span class="section-number-3">8.2</span> Exercise 5: Followup to Exercise 4</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
-<i>This exercise is a follow-up to Exercise 4. After typing (*);; at the toplevel, type *)33;;<br />
+<i>This exercise is a followup to Exercise 4. After typing (*);; at the toplevel, type *)33;;<br />
 What happens? Why does it happen? Shouldn’t you write ( * ) instead?</i><br />
 </p>
 
 <p>
-We need to use ( * ) instead of (<b>) because (</b> indicates the start of a comment in OCaml. It assumes *) to be the end of the comment and thus, the only code it executes is 33.<br />
+We need to use <code>( * )</code> instead of <code>(*)</code> because <code>(*</code> indicates the start of a comment in OCaml. It assumes <code>*)</code> to be the end of the comment and thus, the only code it executes is 33.<br />
 </p>
 
 <p>
@@ -743,13 +743,13 @@ We need to use ( * ) instead of (<b>) because (</b> indicates the start of a com
 </p>
 
 <p>
-Although * is similar in syntax to the rest of the mathematical operators, the OCaml comment command causes the multiplication function to be slightly different in notation. Constant vigilance and a little bit of Googling in times of error is essential!<br />
+Although <code>*</code> is similar in syntax to the rest of the mathematical operators, the OCaml comment command causes the multiplication function to be slightly different in notation. Constant vigilance and a little bit of Googling in times of error is essential!<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgac2cd9f" class="outline-3">
-<h3 id="orgac2cd9f"><span class="section-number-3">8.3</span> Exercise 14: a unit test for the function summing the first consecutive natural numbers</h3>
+<div id="outline-container-orgf65757c" class="outline-3">
+<h3 id="orgf65757c"><span class="section-number-3">8.3</span> Exercise 14: a unit test for the function summing the first consecutive natural numbers</h3>
 <div class="outline-text-3" id="text-8-3">
 <p>
 <i>Inspired by the factorial function that maps a non-negative integer n to the product from 1 to n (i.e., 1 * 2 * 3 * &#x2026; * n), write a unit-test function for a sumtorial function that maps a non-negative integer n to the sum from 0 to n (i.e., 0 + 1 + 2 + 3 + &#x2026; + n, i.e., the sum of the n+1 first natural numbers).</i><br />
@@ -773,8 +773,8 @@ This was quite similar to the factorial function explained in the example. Doing
 </div>
 </div>
 
-<div id="outline-container-org1a584c8" class="outline-2">
-<h2 id="org1a584c8"><span class="section-number-2">9</span> Conclusion</h2>
+<div id="outline-container-org5594aa6" class="outline-2">
+<h2 id="org5594aa6"><span class="section-number-2">9</span> Conclusion</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 From this assignment, we saw in particular the relevance of proof trees in our code for OCaml. We also got several takeaways from the unit test sections, namely a deeper understanding of how unit tests can help execute more complex functions. Moreover, it also helped develop our critical thinking by breaking a program down into smaller stages, which helped clarify each logical step to solving problems.<br />
@@ -794,7 +794,7 @@ We also learnt a limitation of unit-tests; unit-tests only validate particular c
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: M-x Author</p>
-<p class="date">Created: 2021-02-04 Thu 02:30</p>
+<p class="date">Created: 2021-02-04 Thu 11:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
