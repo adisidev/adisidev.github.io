@@ -1,0 +1,136 @@
+#+TITLE: Aditya Singhania / Curriculum Vitae
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+OPTIONS: num:nil
+
+/sophmore, yale-nus college, class of '2024/
+
+* Personal Profile
+
+Hi, I'm Adi. Nice to meet you ( _albeit virtually, and through a monologue_ )!
+
+#+BEGIN_SRC python:
+print('hello!')
+#+END_SRC
+
+I'd like to believe that I can help you get your way around any problem that you're trying to solve through computers (and more specifically, programming).
+
+I may not know every skill there is out in the world, but I believe the most important skill that any Computer Scientist can have is the ability to learn. Thus, even if I don't know much about the problem you're currently dealing, it'd be my pleasure (and excitement!) for me to be able to learn more about what you're trying to solve, and brainstorm the best ways to go about it.
+
+Fundamentally, I'd like to add value to whatever it is you're trying to do; if I believe I can't add value, or you'd have to invest more effort in bringing me up to speed than the value I'd bring in, I'll tell you frankly so (as this would be a very frustrating experience for both of us). Anyhow, I love collaborating with others and working in teams; if you'd like to work with me or simply have a chat, feel free to reach out to me!
+
+* Skills
+
+| Area            | Beginner              | Intermediate  | Advanced                    |
+|-----------------+-----------------------+---------------+-----------------------------|
+| Programming     | JavaScript, HTML, CSS | git, GitHub   | Python, C++, C              |
+| Tech-Enthusiast | Emacs (Spacemacs)     | Vim           | Karabiner-Elements          |
+| Art & Design    | DaVinci Resolve       | After Effects | Photoshop, Premiere Profile |
+
+/Skills are, of course, normalised to each other./
+
+* Portfolio
+
+** Projects and Experience
+
+*** Cartograms, go-cart.io [C, C++] / Research Assistant, C++ Programmer
+
+/SEP 20 - PRESENT/
+
+*** Topological Colouring Algorithm for Cartograms [C, C++] / Research Grant [S$1,500]
+
+Yale-NUS Special Pockets Research Grant (2021)
+
+*** EvoSim [C++] / Creator
+
+/MAR 2021/
+
+*** ModExchange [C, C++] / Creator
+
+/AUG 17 - JAN 20/
+
+Automated my school’s annual stock exchange using C++ for the backend and Windows Forms for the front end.
+
+*** The MarketPlace [Card Game, Negotiation and Leadership Skills] / Creator
+
+/MAY 18 - JAN 21/
+
+Created my own economics based trading card game for 6-36 players where there is a simulated market with scarce resources.
+
+*** TalkTime / Founder
+
+/JAN 18 - NOV 19/
+
+Helped ideate and design an app that connects those in need of human connection (such as patients of PTSD, Autism, Depression etc.) to crowd-sourced volunteers on the phone.
+
+*** OnBoard / Founder
+
+/MAY 20 - FEB 21/
+
+Helped ideate and design a product that would allow interns to input their resume in a modular checkbox fashion so that computer algorithms may easily connect them to firms.
+
+*** hack [Computer Science Course for Kids] / Founder
+
+/APR 17 - JAN 18/
+
+Held a short summer and winter course to teach children aged 8-15 the basics of computer science and computational thinking through MIT’s Scratch.
+
+** Awards
+
+*** Yale-NUS College Faculty Scholarship [total support: S$82,000]
+
+*** Sardar Bhagwant Singh Award for Excellence in Research [INR 10,000]
+
+/MAR 18/
+
+A school-level Award to present your own preliminary research in a group for a social issue.
+
+*** Principal's Award in Recognition of Outstanding Spirit of Dedication
+
+/JUN 19/
+
+** Leadership Positions
+
+*** Computer Science Club / President
+
+*** Mathematics Club / President
+
+*** Economics Club / President
+
+** Academics
+
+*** *Yale-NUS College* / Class of '2024
+
+/AUG 20 - PRESENT/
+
+Prospective Mathematics, Computational & Statistical Sciences Major
+
+*** *Modern School Vasant Vihar* / Class of '2019
+
+Scored 100 in Computer Science [C++] in India’s Central Secondary Board of Education Graduation Examinations with a best of 4 of 96.25%.
+(
+*** *CS50x* / Harvard University
+
+/APR 17 - JUL 17/
+
+A 12 week course that helps one gain a broad and robust understanding of computer science and how to learn, through C & Python.
+
+*** *Python for Everyone* / University of Michigan
+
+/JAN 20 - FEB 20/
+
+An entry level python course offered by the University of Michigan.
+
+*** *Website Development Pathway* / Codecademy
+
+/MAY 20 - PRESENT/
+
+A programming pathway on codecademy that takes you through multiple courses to learn how to work with the web.
+
+*** *ACT* / 35
+
+/OCT 17/
+
+* Contact Me
+
+- *Email:* adityasinghania@u.yale-nus.edu.sg
+- *Phone:* +65 88403384 (Telegram) / +91 9990002400 (WhatsApp) 
