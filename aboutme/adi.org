@@ -6,7 +6,7 @@
 
 * Personal Profile
 
-Hi, I'm Adi. Nice to meet you ( _albeit virtually, and through a monologue_ )!
+Hi, I'm Adi. Nice to meet you (/albeit/ virtually, and through a monologue)!
 
 #+BEGIN_SRC python:
 print('hello!')
