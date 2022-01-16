@@ -8,8 +8,13 @@
 
 Hi, I'm Adi. Nice to meet you (/albeit/ virtually, and through a monologue)!
 
-#+BEGIN_SRC python:
-print('hello!')
+#+BEGIN_SRC c++
+  std::cout << "hello there!" << std::endl;
+  // Remember to flush your buffers every now and then!
+#+END_SRC
+
+#+BEGIN_SRC python
+  print('you speak python too?')
 #+END_SRC
 
 I'd like to believe that I can help you get your way around any problem that you're trying to solve through computers (and more specifically, programming).
@@ -20,11 +25,11 @@ Fundamentally, I'd like to add value to whatever it is you're trying to do; if I
 
 * Skills
 
-| Area            | Beginner              | Intermediate  | Advanced                    |
-|-----------------+-----------------------+---------------+-----------------------------|
-| Programming     | JavaScript, HTML, CSS | git, GitHub   | Python, C++, C              |
-| Tech-Enthusiast | Emacs (Spacemacs)     | Vim           | Karabiner-Elements          |
-| Art & Design    | DaVinci Resolve       | After Effects | Photoshop, Premiere Profile |
+| *Area*          | *Beginner*            | *Intermediate* | *Advanced*              |
+|-----------------+-----------------------+----------------+-------------------------|
+| Programming     | JavaScript, HTML, CSS | git, GitHub    | Python, C++, C          |
+| Tech-Enthusiast | Emacs (Spacemacs)     | Vim            | Karabiner-Elements      |
+| Art & Design    | DaVinci Resolve       | After Effects  | Photoshop, Premiere Pro |
 
 /Skills are, of course, normalised to each other./
 
@@ -32,103 +37,129 @@ Fundamentally, I'd like to add value to whatever it is you're trying to do; if I
 
 ** Projects and Experience
 
-*** Cartograms, go-cart.io [C, C++] / Research Assistant, C++ Programmer
+*** *Cartograms, go-cart.io [C, C++]* / Research Assistant, C++ Programmer
 
 /SEP 20 - PRESENT/
+- Helped translate a C program that generates a cartogram to C++, improving run time and fixing errors. Also helped make the algorithm topologically aware, such that projected cartograms do not contain any intersections.
+- Part-Time During Academic Term [8-16 hours a week] / Full-Time During Break [44 hours a week]
 
-*** Topological Colouring Algorithm for Cartograms [C, C++] / Research Grant [S$1,500]
+*** *IT Support Assistant* / Yale-NUS
 
-Yale-NUS Special Pockets Research Grant (2021)
+/AUG 20 - PRESENT/
+- Part-Time During Academic Term [8-16 hours a week]
 
-*** EvoSim [C++] / Creator
+*** *Topological Colouring Algorithm for Cartograms [C, C++]* / Research Grant [S$1,500]
 
-/MAR 2021/
+/DEC 21/
+- Yale-NUS Special Pockets Research Grant (2021)
+- Made an algorithm to colour maps in a manner where adjacent regions always have different colours.
 
-*** ModExchange [C, C++] / Creator
+
+*** *RSV.py [Python, Open-Source]* / Creator
+
+/DEC 21 - PRESENT/
+- Currently building a terminal-based (using the curses library), rapid serial visual presentation (RSVP) eBook reader.
+
+*** *EvoSim [C++, Open-Source]* / Creator
+
+/MAR 20/
+- Made a C++ program that simulates evolution of an organism represented as a numeric string; inspired by an algorithm competition in a course I took, which I was the winner of, in a cohort of 250 at Yale-NUS.
+
+*** *ModExchange [C, C++]* / Creator
 
 /AUG 17 - JAN 20/
+- Automated my school’s annual stock exchange using C++ for the backend and Windows Forms for the front end.
 
-Automated my school’s annual stock exchange using C++ for the backend and Windows Forms for the front end.
-
-*** The MarketPlace [Card Game, Negotiation and Leadership Skills] / Creator
+*** *The MarketPlace [Card Game, Negotiation and Leadership Skills]* / Creator
 
 /MAY 18 - JAN 21/
+- Created my own economics based trading card game for 6-36 players where there is a simulated market with scarce resources.
 
-Created my own economics based trading card game for 6-36 players where there is a simulated market with scarce resources.
-
-*** TalkTime / Founder
+*** *TalkTime* / Founder
 
 /JAN 18 - NOV 19/
+- Helped ideate and design an app that connects those in need of human connection (such as patients of PTSD, Autism, Depression etc.) to crowd-sourced volunteers on the phone.
 
-Helped ideate and design an app that connects those in need of human connection (such as patients of PTSD, Autism, Depression etc.) to crowd-sourced volunteers on the phone.
-
-*** OnBoard / Founder
+*** *OnBoard* / Founder
 
 /MAY 20 - FEB 21/
+- Helped ideate and design a product that would allow interns to input their resume in a modular checkbox fashion so that computer algorithms may easily connect them to firms.
 
-Helped ideate and design a product that would allow interns to input their resume in a modular checkbox fashion so that computer algorithms may easily connect them to firms.
-
-*** hack [Computer Science Course for Kids] / Founder
+*** *hack [Computer Science Course for Kids]* / Founder
 
 /APR 17 - JAN 18/
-
-Held a short summer and winter course to teach children aged 8-15 the basics of computer science and computational thinking through MIT’s Scratch.
+- Held a short summer and winter course to teach children aged 8-15 the basics of computer science and computational thinking through MIT’s Scratch.
 
 ** Awards
 
-*** Yale-NUS College Faculty Scholarship [total support: S$82,000]
+*** *Yale-NUS College Faculty Scholarship* / S$82,000
 
-*** Sardar Bhagwant Singh Award for Excellence in Research [INR 10,000]
+*** *Sardar Bhagwant Singh Award for Excellence in Research* / INR 10,000
 
 /MAR 18/
+- A school-level Award to present your own preliminary research in a group for a social issue.
 
-A school-level Award to present your own preliminary research in a group for a social issue.
-
-*** Principal's Award in Recognition of Outstanding Spirit of Dedication
+*** *Principal's Award in Recognition of Outstanding Spirit of Dedication*
 
 /JUN 19/
+- A school-wide award to recognise dedication toward and outside of academics, attained through organizing and leading multiple inter-school, national events.
 
 ** Leadership Positions
 
-*** Computer Science Club / President
+*** *Computer Science Club* / President
 
-*** Mathematics Club / President
+*** *Mathematics Club* / President
 
-*** Economics Club / President
+*** *Economics Club* / President
 
 ** Academics
 
 *** *Yale-NUS College* / Class of '2024
 
 /AUG 20 - PRESENT/
-
-Prospective Mathematics, Computational & Statistical Sciences Major
+- Prospective Mathematics, Computational & Statistical Sciences Major
 
 *** *Modern School Vasant Vihar* / Class of '2019
 
 Scored 100 in Computer Science [C++] in India’s Central Secondary Board of Education Graduation Examinations with a best of 4 of 96.25%.
-(
-*** *CS50x* / Harvard University
-
-/APR 17 - JUL 17/
-
-A 12 week course that helps one gain a broad and robust understanding of computer science and how to learn, through C & Python.
-
-*** *Python for Everyone* / University of Michigan
-
-/JAN 20 - FEB 20/
-
-An entry level python course offered by the University of Michigan.
-
-*** *Website Development Pathway* / Codecademy
-
-/MAY 20 - PRESENT/
-
-A programming pathway on codecademy that takes you through multiple courses to learn how to work with the web.
 
 *** *ACT* / 35
 
 /OCT 17/
+
+** Courses
+
+*** *Programming for Data Science* / Yale-NUS
+
+/A+/
+- A programming course, teaching a vast majority of things one can do with Python (related to, and apart from, data science).
+
+*** *Introduction to Computer Science* / Yale-NUS
+
+/A+/
+
+*** *C: A Language for Science & Engineering* / Yale-NUS
+
+/A/
+
+*** *Introduction to Python* / Yale-NUS
+
+/A+/
+
+*** *CS50x* / Harvard University
+
+/APR 17 - JUN 17/
+- A 12 week course that helps one gain a broad and robust understanding of computer science and how to learn, through C & Python.
+
+*** *Python for Everyone* / University of Michigan
+
+/JAN 20 - FEB 20/
+- An entry level python course offered by the University of Michigan.
+
+*** *Website Development Pathway* / Codecademy
+
+/MAY 20 - JUL 21/
+- A programming pathway on codecademy that takes you through multiple courses to learn how to work with the web.
 
 * Contact Me
 
