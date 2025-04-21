@@ -12,7 +12,7 @@
       <!-- Camera with cursor for gaze interaction -->
       <a-entity camera look-controls>
         <a-entity
-          cursor="fuse: true; fuseTimeout: 100"
+          cursor="fuse: true; fuseTimeout: 1000"
           position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
           material="color: #FF5722; shader: flat">
@@ -150,7 +150,7 @@
 
           // Add event listener for CV sphere
           document.querySelector('#cv-sphere .cv-gazeable').addEventListener('click', function () {
-            window.location.href = "https://adisinghania.com/cv.pdf";
+            window.location.href = "https://adisinghania.com/cvs/Adi Singhania for Centre for Immersification.pdf";
           });
         });
 
