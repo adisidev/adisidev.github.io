@@ -1,163 +1,126 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Adi's XR Bio - Interactive</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
-  </head>
-  <body>
-    <a-scene xr-mode-ui="enabled: true">
-      <!-- Camera with cursor for gaze interaction -->
-      <a-entity camera look-controls>
-        <a-entity
-          cursor="fuse: true; fuseTimeout: 1000"
-          position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-          material="color: #FF5722; shader: flat">
-        </a-entity>
-      </a-entity>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>adisinghania.com</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --link: #0f766e;
+      --link-hover: #115e59;
+    }
 
-      <!-- Panels (initially all hidden except panel7) -->
-      <a-entity id="panel0" visible="false">
-        <a-box width="2.8" height="0.5" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="Dear Dr. Chek Tien Tan," width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel1" visible="false">
-        <a-box width="2.8" height="0.7" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="I hope you find this message well!
+    * {
+      box-sizing: border-box;
+    }
 
-        I'm Adi Singhania, a Research Engineer currently working with Associate Professor Michael Gastner at SIT." width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel2" visible="false">
-        <a-box width="2.8" height="1.3" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="I love gamification. In my free time, I've often perused gamification literature (some less academic like Yu-kai Chou or Game Maker's Toolkit and some more) in an attempt to gamify different areas of my own life (mainly productivity and working out). I also love XR. I have my own Meta Quest 3, and I really think XR (particularly, AR/MR), once advanced enough, will be the most salient way humans will interact with computers." width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel3" visible="false">
-        <a-box width="2.8" height="0.9" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="Thus, I was quite excited when I found out that the Centre for Immersification has a Research Engineer position listed on SIT's job board that lines up well with the end date of my current contract!" width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel4" visible="false">
-        <a-box width="2.8" height="1.1" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="I'll be frank: although I do love gamification and XR, I haven't gotten the chance to conduct research within those fields yet. That being said, most of my research work has revolved around programming in C++/Vue.js/Python, as well as writing papers on Cartograms and the related computer graphics techniques required to achieve them." width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel5" visible="false">
-        <a-box width="2.8" height="1.2" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="I noticed that you use C++/CMake, Typescript and Python quite extensively in a many of your repositories over at https://github.com/singaporetech, and https://www.immersification.org/jobs/ lists academic writing and computer graphics as desired skills. Thus, I hope my previous experience will still prove fruitful in my efforts to contribute to your project!" width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel6" visible="false">
-        <a-box width="2.8" height="1.0" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="I'm truly excited about the possibility of working with you and contributing to the Centre for Immersification. Please let me know if you'd be open to a conversation sometime next week - I'd love to discuss how I can contribute to your team. In the meanwhile, I've 'hidden' my CV herewith for your reference (with two papers absent as they are currently under review)." width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
-      <a-entity id="panel7" visible="false">
-        <a-box width="2.8" height="1.1" depth="0.05" color="#222" opacity="0.7" position="0 1.6 -3"></a-box>
-        <a-text value="P.S. I would also like to be upfront and mention that I'm a foreigner. That being said, there are a few bureaucratic niceties that prevent that from being too intrusive. In particular, since I already have an Employment Pass (EP) with SIT that is valid until late 2026, HR would not have to apply for a new pass, and you would not have to pay the S-Pass levy that is usually associated with hiring foreigners." width="2.5" align="center" position="0 1.6 -2.97" color="#fff"></a-text>
-      </a-entity>
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
 
-      <!-- Gaze Button and Prompt (always visible at start) -->
-      <a-entity id="gaze-group" visible="true">
-        <a-sphere id="gaze-button-bg" radius="0.25" color="#FF5722" opacity="0.85" position="0 0 0"></a-sphere>
-        <a-entity
-          geometry="primitive: sphere; radius: 0.26"
-          material="opacity: 0"
-          position="0 0 0"
-          class="gazeable"
-        ></a-entity>
-      </a-entity>
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-      <!-- Text in front of the player -->
-      <a-entity id="orange-sphere-text" visible="true">
-        <a-text value="Look at the orange sphere to continue" width="2" align="center" color="#222" position="0 -0.4 -2.5"></a-text>
-      </a-entity>
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
 
-      <!-- Text in front of the player -->
-      <a-entity id="cv-text" visible="false">
-        <a-text value="Look behind you." width="2" align="center" color="#222" position="0 -0.4 -2.5"></a-text>
-      </a-entity>
+    p {
+      margin: 8px 0 20px;
+      color: var(--muted);
+    }
 
-      <!-- Text behind the player -->
-      <a-entity id="blue-sphere-text" visible="true">
-        <a-text value="Look at the blue sphere to download my CV" width="2" align="center" color="#222" position="0 0.4 2.5"></a-text>
-      </a-entity>
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
 
-      <!-- Blue sphere for CV -->
-      <a-entity id="cv-sphere" position="0 0.6 3">
-        <a-sphere radius="0.3" color="#0000FF" opacity="0.85"></a-sphere>
-        <a-entity
-          geometry="primitive: sphere; radius: 0.31"
-          material="opacity: 0"
-          position="0 0 0"
-          class="cv-gazeable"
-        ></a-entity>
-      </a-entity>
+    a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--link);
+      background: #fcfcfc;
+      transition: border-color 0.12s, background 0.12s, color 0.12s;
+    }
 
-      <a-sky color="#ECECEC"></a-sky>
-      <a-entity environment="preset: forest; groundColor: #445; skyColor: #ccf"></a-entity>
+    a:hover {
+      border-color: #b9d7d3;
+      color: var(--link-hover);
+      background: #f6fbfa;
+    }
 
-      <script>
-        // Panels data
-        const panelIds = [
-          "panel0", "panel1", "panel2", "panel3",
-          "panel4", "panel5", "panel6", "panel7"
-        ];
-        let currentPanel = -1; // Start before the first panel
+    .label {
+      font-weight: 600;
+      color: var(--text);
+    }
 
-        // Button positions for each step (first: off-center and higher)
-        const gazePositions = [
-          {x: -1,   y: 1.4, z: -2.5},  // Start (no panel)
-          {x: 0.2,  y: 0.4, z: -3},    // Panel 0
-          {x: 1.2,  y: 0.5, z: -2.7},  // Panel 1
-          {x: -1.1, y: 0.3, z: -2.5},  // Panel 2
-          {x: 0.5,  y: 0.5, z: -3.2},  // Panel 3
-          {x: -0.5, y: 0.6, z: -2.8},  // Panel 4
-          {x: 0.8,  y: 0.0, z: -2.9},  // Panel 5
-          {x: -0.7, y: 0.2, z: -2.6},  // Panel 6
-          {x: 0,    y: 0.6, z: -3.1}   // Panel 7
-        ];
+    .path {
+      font-size: 0.92rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: right;
+    }
 
-        function updateGazeButton() {
-          let gazeGroup = document.getElementById('gaze-group');
-          let turnAroundText = document.getElementById('cv-text');
-          let pos = gazePositions[currentPanel + 1];
-          gazeGroup.setAttribute('position', `${pos.x} ${pos.y} ${pos.z}`);
-          gazeGroup.setAttribute('visible', currentPanel < panelIds.length);
+    @media (max-width: 640px) {
+      a {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-          // Toggle visibility of orange sphere text
-          document.getElementById('orange-sphere-text').setAttribute('visible', currentPanel === -1);
-
-          // Hide orange sphere once panel6 is displayed
-          if (currentPanel === 7) {
-            gazeGroup.setAttribute('visible', false);
-            turnAroundText.setAttribute('visible', true);
-          }
-        }
-
-        function showCurrentPanel() {
-          panelIds.forEach((id, idx) => {
-            document.getElementById(id).setAttribute('visible', idx === currentPanel);
-          });
-          updateGazeButton();
-        }
-
-        function nextPanel() {
-          if (currentPanel < panelIds.length - 1) {
-            currentPanel++;
-            showCurrentPanel();
-          }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-          document.querySelector('#gaze-group .gazeable').addEventListener('click', nextPanel);
-
-          // Add event listener for CV sphere
-          document.querySelector('#cv-sphere .cv-gazeable').addEventListener('click', function () {
-            window.location.href = "https://adisinghania.com/cvs/Adi Singhania for Centre for Immersification.pdf";
-          });
-        });
-
-        showCurrentPanel();
-      </script>
-    </a-scene>
-  </body>
+      .path {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>adisinghania.com</h1>
+    <p>Directory of pages (excluding <code>/iloveyou/</code>).</p>
+    <ul>
+      <li><a href="/aboutme/adi.html"><span class="label">About Me</span><span class="path">/aboutme/adi.html</span></a></li>
+      <li><a href="/akandadiswok/"><span class="label">Akandadiswok</span><span class="path">/akandadiswok/</span></a></li>
+      <li><a href="/cs-term-project/"><span class="label">CS Term Project</span><span class="path">/cs-term-project/</span></a></li>
+      <li><a href="/cv.pdf"><span class="label">CV (PDF)</span><span class="path">/cv.pdf</span></a></li>
+      <li><a href="/cvs/Adi%20Singhania%20for%20Centre%20for%20Immersification.pdf"><span class="label">CV for Centre for Immersification (PDF)</span><span class="path">/cvs/Adi%20Singhania%20for%20Centre%20for%20Immersification.pdf</span></a></li>
+      <li><a href="/daynav/"><span class="label">daynav</span><span class="path">/daynav/</span></a></li>
+      <li><a href="/introcs-midterm/"><span class="label">IntroCS Midterm</span><span class="path">/introcs-midterm/</span></a></li>
+      <li><a href="/introcs-midterm/A0209670A_midterm.pdf"><span class="label">IntroCS Midterm Submission (PDF)</span><span class="path">/introcs-midterm/A0209670A_midterm.pdf</span></a></li>
+      <li><a href="/introcs-temp/"><span class="label">IntroCS Temp</span><span class="path">/introcs-temp/</span></a></li>
+      <li><a href="/introcs-w1/"><span class="label">IntroCS Week 1</span><span class="path">/introcs-w1/</span></a></li>
+      <li><a href="/introcs-w3/"><span class="label">IntroCS Week 3</span><span class="path">/introcs-w3/</span></a></li>
+      <li><a href="/onboard/"><span class="label">Onboard</span><span class="path">/onboard/</span></a></li>
+      <li><a href="/tyler/"><span class="label">Tyler</span><span class="path">/tyler/</span></a></li>
+    </ul>
+  </main>
+</body>
 </html>
